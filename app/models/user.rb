@@ -10,6 +10,13 @@ class User < ApplicationRecord
   # パスワードのハッシュ化
   has_secure_password
 
+  # 作成した予約
+  has_many :reservations, dependent: :destroy
+
+  # 参加している予約
+  has_many :reservation_participants, dependent: :destroy
+  has_many :participating_reservations, through: :reservation_participants, source: :reservation
+
   # バリデーション
   validates :name,  presence: true
   validates :email, presence: true, uniqueness: true
