@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :company_signups, only: :create
       resources :users, only: %i[index show create update destroy]
-       resources :rooms, only: %i[index show create update destroy]
+      resources :rooms, only: %i[index show create update destroy] do
+        resources :reservations, only: %i[index show create update destroy]
+      end
       resource :session, only: %i[create destroy]
     end
   end
