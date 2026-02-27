@@ -10,6 +10,12 @@ class Api::V1::SessionsController < ApplicationController
     end
   end
 
+  # JWT はサーバー側で状態を持たないので、
+  # クライアント側でトークンを破棄してもらう前提の「論理ログアウト」エンドポイント
+  def destroy
+    head :no_content
+  end
+
   private
 
   def session_params
