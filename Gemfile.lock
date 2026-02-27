@@ -119,6 +119,8 @@ GEM
     json-schema (6.1.0)
       addressable (~> 2.8)
       bigdecimal (>= 3.1, < 5)
+    jwt (3.1.2)
+      base64
     kamal (2.10.1)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -327,6 +329,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
+  jwt
   kamal
   mysql2 (~> 0.5)
   pry-byebug

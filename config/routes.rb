@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :company_signups, only: :create
+      resources :users, only: %i[index show create update destroy]
+      resource :session, only: %i[create destroy]
     end
   end
 end
